@@ -4,9 +4,9 @@
 
 [node name="Player" type="CharacterBody2D"]
 
-[node name="Sprite" type="Sprite2D" parent="."]
+[node name="Sprite_1" type="Sprite2D" parent="."]
 position = Vector2(129, 70)
 texture = ExtResource("1_aqy8j")
-hframes = 2
+hframes = 3
 region_enabled = true
 region_rect = Rect2(0, 0, 49, 24)
