@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://ripw1ooeu6o8"]
+
+[ext_resource type="PackedScene" uid="uid://bq5pu5ok6eyjn" path="res://scenes/levels/level_1.tscn" id="1_hmfkp"]
+
+[node name="Main" type="Node"]
+
+[node name="2D_Scene" type="Node2D" parent="."]
+
+[node name="Level_1" parent="2D_Scene" instance=ExtResource("1_hmfkp")]
+position = Vector2(203.792, 170.628)

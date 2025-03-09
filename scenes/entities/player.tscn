@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://byjlqt2k1xy4i"]
+
+[ext_resource type="Texture2D" uid="uid://uag0frgd5loy" path="res://assets/tilemap/tilemap-characters.png" id="1_aqy8j"]
+
+[node name="Player" type="CharacterBody2D"]
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(129, 70)
+texture = ExtResource("1_aqy8j")
+hframes = 2
+region_enabled = true
+region_rect = Rect2(0, 0, 49, 24)
