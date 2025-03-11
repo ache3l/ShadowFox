@@ -17,6 +17,8 @@ var can_dash = true
 var air_dash_ok = 1
 var dash_active = false
 var can_jump = true
+var jump_active = false
+var air_jump_ok = 1
 
 #Test beneath
 func _ready():
@@ -34,14 +36,21 @@ func _physics_process(delta):
 	#Recharge dash on floor
 	if is_on_floor():
 		air_dash_ok = 1
+		air_jump_ok = 1
+		
 	
 	#Regular jump
 	if Input.is_action_just_pressed("jump") && is_on_floor() && can_jump == true:
+		jump_active = true
 		velocity.y = -jump_height
+		jump_active = false
 	
 	#Double jump
-	if Input.is_action_just_pressed("jump") && not is_on_floor():
+	if Input.is_action_just_pressed("jump") && not is_on_floor() && air_jump_ok == 1:
+		jump_active = true
 		velocity.y = -jump_height + (jump_height * 0.1)
+		jump_active = false
+		air_jump_ok = 0
 	
 	#Left/Right movement
 	var horizontal_direction = Input.get_axis("move_left", "move_right")
@@ -57,7 +66,7 @@ func _physics_process(delta):
 		direction = 1
 	
 	#Dashing
-	if Input.is_action_just_pressed("dash") && can_dash && air_dash_ok == 1:
+	if Input.is_action_just_pressed("dash") && can_dash && air_dash_ok == 1 && jump_active == false:
 		can_dash = false
 		can_jump = false
 		dash_active = true
@@ -73,3 +82,4 @@ func _physics_process(delta):
 		can_dash = true
 		can_jump = true
 		dash_active = false
+		position.y = predash_y
