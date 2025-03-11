@@ -83,3 +83,4 @@ func _physics_process(delta):
 		can_jump = true
 		dash_active = false
 		position.y = predash_y
+		velocity.y = 0
