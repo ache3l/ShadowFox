@@ -6,7 +6,7 @@ extends CharacterBody2D
 @export var speed = 200 #Movement per frame
 @export var gravity = 30 #Gravitational pull down
 @export var jump_height = 400 #Jump height
-@export var dash = 10 #Dash distance
+@export var dash = 15 #Dash distance
 @export var direction = -1 #Started facing left, 1 = left, -1 = right
 
 #onready var
@@ -48,7 +48,7 @@ func _physics_process(delta):
 	#Double jump
 	if Input.is_action_just_pressed("jump") && not is_on_floor() && air_jump_ok == 1:
 		jump_active = true
-		velocity.y = -jump_height + (jump_height * 0.1)
+		velocity.y = -jump_height + (jump_height * 0.05)
 		jump_active = false
 		air_jump_ok = 0
 	
